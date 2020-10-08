@@ -18,12 +18,17 @@ MongoClient.connect(url, { useUnifiedTopology: true },function(err, db) {
     if (err) throw err;
     let dbo = db.db("users");
     let doc = {name: 'Luke', familyname: 'Skywalker', age: 45, darkSide: false};
+
+    /*
     dbo.collection("infos").insertOne(doc, function (err) {
         if (err) throw err;
         console.log("The Document has been inserted");
     });
 
-    // Insert Query 
+    */
+
+
+    // Insert Query
 
 
 
@@ -32,8 +37,8 @@ MongoClient.connect(url, { useUnifiedTopology: true },function(err, db) {
 
     // Delete Query
 
-    let MyDeleteQuery = { familyname : 'Kenobi'};
-    dbo.collection("infos").deleteOne(MyDeleteQuery,function (err) {
+    let MyDeleteQuery = { name : 'Luke'};
+    dbo.collection("infos").deleteMany(MyDeleteQuery,function (err) {
         if (err) throw  err;
         console.log("The Document has been deleted ! ");
 
@@ -42,7 +47,7 @@ MongoClient.connect(url, { useUnifiedTopology: true },function(err, db) {
     });
 
 
-
+    // Update Query
 
     let MyUpdateQuery = { name : 'Mace'};
     let Value = { $set : {name : 'Anakin', familyname: 'Skywalker', age : 45, darkSide: true}};
@@ -52,6 +57,8 @@ MongoClient.connect(url, { useUnifiedTopology: true },function(err, db) {
 
 
     });
+
+    // Read Query
 
     dbo.collection("infos").find({}).toArray(function(err, res) {
         if (err) throw err;
