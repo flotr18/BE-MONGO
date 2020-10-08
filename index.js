@@ -17,23 +17,13 @@ let url = "mongodb+srv://admin:root@cluster0.elh7n.mongodb.net/test?retryWrites=
 MongoClient.connect(url, { useUnifiedTopology: true },function(err, db) {
     if (err) throw err;
     let dbo = db.db("users");
-    let doc = {name: 'Luke', familyname: 'Skywalker', age: 45, darkSide: false};
 
-    /*
+    // Insert Query
+    let doc = {name: 'Luke', familyname: 'Skywalker', age: 45, darkSide: false};
     dbo.collection("infos").insertOne(doc, function (err) {
         if (err) throw err;
         console.log("The Document has been inserted");
     });
-
-    */
-
-
-    // Insert Query
-
-
-
-
-
 
     // Delete Query
 
@@ -45,7 +35,6 @@ MongoClient.connect(url, { useUnifiedTopology: true },function(err, db) {
 
 
     });
-
 
     // Update Query
 
@@ -67,17 +56,6 @@ MongoClient.connect(url, { useUnifiedTopology: true },function(err, db) {
         db.close()
 
     });
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
